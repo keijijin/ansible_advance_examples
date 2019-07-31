@@ -7,6 +7,9 @@
   gather_facts: false   # Speeds up the execution
   roles:
 
+    - role: configure
+      when: inventory_hostname in groups['all']
+
     - role: HAproxy
       when: inventory_hostname in groups['frontends']
       
